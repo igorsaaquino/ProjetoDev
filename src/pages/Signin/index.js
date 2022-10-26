@@ -25,7 +25,9 @@ const Signin = () => {
       setError(res);
       return;
     }
+
     navigate("/home");
+    
   };
 
   return (
