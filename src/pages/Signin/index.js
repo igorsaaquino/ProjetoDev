@@ -27,7 +27,7 @@ const Signin = () => {
     }
 
     navigate("/home");
-    
+
   };
 
   return (
@@ -42,7 +42,7 @@ const Signin = () => {
         />
         <Input 
         type="password"
-        placeholder="Digite seu Senha"
+        placeholder="Digite sua Senha"
         value={senha}
         onChange={(e) => [setSenha(e.target.value), setError("")]}
         />

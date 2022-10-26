@@ -21,7 +21,7 @@ const Signup = () => {
     } else if (email !== emailConf){
       setError("Os e-mail inseridos são diferentes");
       return;
-    }
+    };
 
     const res = signup(email, senha);
 
@@ -33,7 +33,7 @@ const Signup = () => {
     navigate("/");
     
   };
-  };
+
 
   return (
     <C.Container>
@@ -47,13 +47,13 @@ const Signup = () => {
         />
         <Input 
         type="email"
-        placeholder="Digite seu E-mail"
+        placeholder="Digite novamente seu E-mail"
         value={emailConf}
         onChange={(e) => [setEmailConf(e.target.value), setError("")]}
         />
         <Input 
         type="password"
-        placeholder="Digite seu Senha"
+        placeholder="Digite sua Senha"
         value={senha}
         onChange={(e) => [setSenha(e.target.value), setError("")]}
         />
@@ -66,9 +66,7 @@ const Signup = () => {
           </C.Strong>
         </C.LabelSignin>
       </C.Content>
-
     </C.Container>
   );
 };
-
 export default Signup;
