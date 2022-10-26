@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
 body {
     width: 100vw;
     height: 100vh;
-    background-color: #f0f1f5;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E3E3E3;
+    font-family: Sora, Helvetica, sans-serif;
 }
 `;
 

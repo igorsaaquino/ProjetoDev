@@ -8,7 +8,7 @@ const App = () => {
         <AuthProvider>
         <RoutesApp />
         <GlobalStyle />
-        <AuthProvider/>
+        </AuthProvider>
     );
 };
 
