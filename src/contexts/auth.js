@@ -5,7 +5,7 @@ export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
 
-    useEffect(() =>{
+    useEffect(() => {
         const userToken = localStorage.getItem("user_token");
         const usersStorage = localStorage.getItem("users_db");
 
@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
             const hasUser = JSON.parse(usersStorage)?.filter(
                 (user) => user.email === JSON.parse(userToken).email);
 
-                if(hasUser) setUser(hasUser[0]);
+                if (hasUser) setUser(hasUser[0]);
         }
 
     }, []);
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
         const usersStorage = JSON.parse(localStorage.getItem("users_db"));
         const hasUser = usersStorage?.filter((user) => user.email === email);
 
-        if (hasUser?.length){
+        if (hasUser?.length) {
             if(hasUser[0].email === email && hasUser[0].password === password) {
             const token = Math.random().toString(36).substring(2);
             localStorage.setItem("user_token", JSON.stringify({ email, token}));
@@ -40,15 +40,15 @@ export const AuthProvider = ({ children }) => {
         const usersStorage = JSON.parse(localStorage.getItem("users_db"));
         const hasUser = usersStorage?.filter((user) => user.email === email);
     
-        if(hasUser?.length) {
+        if (hasUser?.length) {
             return "Já existe uma conta associada a este E-mail";
         }
     
         let newUser;
     
-        if(usersStorage) {
+        if (usersStorage) {
             newUser = [...usersStorage, {email, password}];
-        }else {
+        } else {
             newUser = [{ email, password }];
         }
     
@@ -61,7 +61,10 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("user_token");
     };
 
-    return( <AuthContext.Provider value={{ user, signed: !!user, signin, signup, signout }}>
+    return ( 
+    <AuthContext.Provider 
+    value={{ user, signed: !!user, signin, signup, signout }}
+    >
         {children}
         </AuthContext.Provider>
         );
