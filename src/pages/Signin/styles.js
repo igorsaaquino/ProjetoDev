@@ -46,3 +46,6 @@ export const Strong = styled.strong`
         color: #ACACAC;
     }
 `;
+
+export const form = styled.form`
+`;

@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
         if(userToken && usersStorage){
             const hasUser = JSON.parse(usersStorage)?.filter(
                 (user) => user.email === JSON.parse(userToken).email);
-
                 if (hasUser) setUser(hasUser[0]);
         }
 
@@ -24,16 +23,17 @@ export const AuthProvider = ({ children }) => {
 
         if (hasUser?.length) {
             if(hasUser[0].email === email && hasUser[0].password === password) {
-            const token = Math.random().toString(36).substring(2);
-            localStorage.setItem("user_token", JSON.stringify({ email, token}));
-            setUser({ email, password });
-            return;
+                const token = Math.random().toString(36).substring(2);
+                localStorage.setItem("user_token", JSON.stringify({ email, token}));
+                console.log(localStorage)
+                setUser({ email, password });
+                return;
+            } else{
+                return "E-mail ou senha incorretos";
+            }
         } else{
-            return "E-mail ou senha incorretos";
+            return "Usuário não cadastrado";
         }
-    } else{
-        return "Usuário não cadastrado";
-    }
     };
 
     const signup = (email, password) => {

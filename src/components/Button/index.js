@@ -3,7 +3,7 @@ import * as C from "./styles";
 
 const Button = ({ Text, onClick, Type = "button"}) => {
   return (
-    <C.Button type={Type} onClick={onClick}>
+    <C.Button type={Type} onClick={()=>onclick}>
         {Text}
         </C.Button>
   )
