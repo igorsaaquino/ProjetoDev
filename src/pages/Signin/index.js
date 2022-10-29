@@ -14,7 +14,8 @@ const Signin = () => {
   const [error, setError] = useState("");
 
   const handleLogin = () => {
-    if(!email | !senha){
+
+    if (!email | !senha) {
       setError("Preencha todos os campos");
       return;
     }
@@ -32,35 +33,33 @@ const Signin = () => {
 
   return (
     <C.Container>
-      <C.Label>PROJETO DEV - LOGIN</C.Label> 
+      <C.Label>PROJETO DEV - LOGIN</C.Label>
       <C.Content>
-        <C.form>
-        <Input 
-        type="text"
-        placeholder="Digite seu E-mail"
-        value={email}
-        autocomplete="current-text"
-        onChange={(e) => [setEmail(e.target.value), setError("")]}
+        <Input
+          type="text"
+          placeholder="Digite seu E-mail"
+          value={email}
+          autocomplete="current-text"
+          onChange={(e) => [setEmail(e.target.value), setError("")]}
         />
 
-        <Input 
-        type="password"
-        placeholder="Digite sua Senha"
-        value={senha}
-        autocomplete="current-password"
-        onChange={(e) => [setSenha(e.target.value), setError("")]}
+        <Input
+          type="password"
+          placeholder="Digite sua Senha"
+          value={senha}
+          autocomplete="current-password"
+          onChange={(e) => [setSenha(e.target.value), setError("")]}
         />
 
         <C.labelError>{error}</C.labelError>
-        <Button Text="Entrar" onclick={handleLogin} />
+        <Button Text="Entrar" onClick={() => handleLogin()} />
 
         <C.LabelSignup>
           Não tem uma conta?
-          <C.Strong> 
+          <C.Strong>
             <Link to="/signup">&nbsp;Registre-se</Link>
           </C.Strong>
         </C.LabelSignup>
-        </C.form>
       </C.Content>
     </C.Container>
   );
