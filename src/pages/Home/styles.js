@@ -10,3 +10,9 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2``;
+
+export const Label = styled.label`
+    font-size: 18px;
+    font-weight: 600;
+    color: #ACACAC;
+`;
